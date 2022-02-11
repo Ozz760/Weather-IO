@@ -21,6 +21,7 @@ User.init(
     username: {
       type: DataTypes.STRING,
       allowNull: false,
+      primaryKey: true,
     },
     password: {
       type: DataTypes.STRING,
@@ -46,7 +47,7 @@ User.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "User",
+    modelName: "user",
   }
 );
 
