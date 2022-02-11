@@ -1,7 +1,6 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-
 class Comment extends Model {}
 
 Comment.init(
@@ -22,15 +21,15 @@ Comment.init(
     },
     body: {
       type: DataTypes.TEXT,
-      allowNull: false, 
+      allowNull: false,
     },
     zip_code: {
-        type: DataTypes.STRING(5),
-        allowNull: false, 
-        validate: {
-            is: /^[0-9]{5}$/,
-        }
-    }
+      type: DataTypes.STRING(5),
+      allowNull: false,
+      validate: {
+        is: /^[0-9]{5}$/,
+      },
+    },
   },
   {
     sequelize,
