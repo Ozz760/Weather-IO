@@ -3,17 +3,9 @@ const { User } = require("../models");
 
 router.get("/", async (req, res) => {
   try {
-    let user;
-    if (req.session.isLoggedIn) {
-      user = await User.findByPk(req.session.userId, {
-        exclude: ["password"],
-        raw: true,
-      });
-    }
     res.render("home", {
       title: "Home Page",
       isLoggedIn: req.session.isLoggedIn,
-      user,
     });
   } catch (error) {
     console.error(error);
