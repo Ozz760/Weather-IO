@@ -9,14 +9,15 @@
   <body>
     <nav>
       <a href='/'>Home</a>
-      {{#if isLoggedIn}}
+      {{!-- {{#if isLoggedIn}} --}}
         <button class='btn btn-logout'>Log Out</button>
-      {{else}}
+      {{!-- {{else}} --}}
         <a href='/login'>login</a>
         <a href='/signup'>signup</a>
-      {{/if}}
+      {{!-- {{/if}} --}}
     </nav>
     {{{body}}}
     <script src='/js/main.js'></script>
+    <script src="/js/weathercall.js"></script>
   </body>
 </html>

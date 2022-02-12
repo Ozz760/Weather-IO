@@ -5,7 +5,7 @@ router.get("/", async (req, res) => {
   try {
     res.render("home", {
       title: "Home Page",
-      isLoggedIn: req.session.isLoggedIn,
+      // isLoggedIn: req.session.isLoggedIn,
     });
   } catch (error) {
     console.error(error);
@@ -21,6 +21,9 @@ router.get("/signup", (req, res) => {
   res.render("signup", { title: "Sign-Up Page" });
 });
 
+router.get("/display", (req, res) => {
+  res.render("display", { title: "Log-In Page" });
+});
 
 module.exports = router;
 
