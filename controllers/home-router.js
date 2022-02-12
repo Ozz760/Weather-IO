@@ -1,5 +1,7 @@
 const router = require("express").Router();
-const { User } = require("../models");
+const { Comment, User } = require("../models");
+
+
 
 router.get("/", async (req, res) => {
   try {
@@ -21,8 +23,16 @@ router.get("/signup", (req, res) => {
   res.render("signup", { title: "Sign-Up Page" });
 });
 
-router.get("/display", (req, res) => {
-  res.render("display", { title: "Log-In Page" });
+router.get("/display",  async (req, res) => {
+  
+  try {
+    const commentPosts = await Comment.findAll();  
+    const comments = commentPosts.map((posts) => posts.get({ plain:true}));
+    res.render("display", {comments, title: "Log-In Page" });
+    console.log(comments); 
+  } catch (error) {
+    res.status(500).json(error);
+  }
 });
 
 module.exports = router;
