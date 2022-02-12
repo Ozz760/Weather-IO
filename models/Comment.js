@@ -20,8 +20,11 @@ Comment.init(
       },
     },
     body: {
-      type: DataTypes.TEXT,
+      type: DataTypes.STRING(250),
       allowNull: false,
+      validate: {
+        len: [3, 250],
+      }, 
     },
     zip_code: {
       type: DataTypes.STRING(5),
