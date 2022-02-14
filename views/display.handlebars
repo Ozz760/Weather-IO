@@ -2,7 +2,7 @@
         <div class="row"> --}}
           <aside class="col-lg-3 pb-3">
             <h2 id="form-heading" class="mt-1 h3 form-label">
-              Search for a City:
+              Search for a Zip Code:
             </h2>
             <form id="search-form" class="form">
               <div class="form-inline form-group">
@@ -11,7 +11,7 @@
                     class="form-input weather-search"
                     type="text"
                     id="search-input"
-                    placeholder="San Diego"
+                    placeholder="92058"
                     aria-labelledby="form-heading"
                     aria-controls="today forecast"
                   />
@@ -49,8 +49,10 @@
 
         <div>
             <div class="form-group">
-             <label for="exampleFormControlTextarea1">Example textarea</label>
-             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+             <p style="text-align: center;">Leave a comment</p>
+             <label for="exampleFormControlTextarea1"></label>
+             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="It's a perfect day to go surfing!"></textarea>
+              <button style="display: block; margin: 0 auto">Add Comment</button>
              </div>
         </div>
         {{!-- {{#each comments }}
