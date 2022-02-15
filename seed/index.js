@@ -1,6 +1,7 @@
 require("dotenv").config();
 const sequelize = require("../config/connection");
 const { User } = require("../models");
+const seedComment = require("./comment");
 
 const userData = require("./userData.json");
 
@@ -11,6 +12,7 @@ const seedDatabase = async () => {
       individualHooks: true,
       returning: true,
     });
+    await seedComment();
     console.log("Finished seeding database.");
   } catch (error) {
     console.error(error);
