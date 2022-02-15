@@ -28,7 +28,11 @@ router.get("/display",  async (req, res) => {
   try {
     const weather = await fetchWeather(req.query.zipcode) 
     console.log(weather);
-    const commentPosts = await Comment.findAll();  
+    const commentPosts = await Comment.findAll({
+      where: {
+        zip_code: req.query.zipcode, 
+      }
+    });  
     const comments = commentPosts.map((posts) => posts.get({ plain:true}));
     res.render("display", {comments, title: "Log-In Page", weather });
     console.log(comments); 
