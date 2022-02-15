@@ -31,16 +31,14 @@
          Wind: {{weather.wind.speed}} mph
     </p>
 </div>
-
-<div>
-    <div class="form-group">
-        <p style="text-align: center;">Leave a comment</p>
-        <label for="exampleFormControlTextarea1"></label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-            placeholder="It's a perfect day to go surfing!"></textarea>
-        <button style="display: block; margin: 0 auto" id="comment-button" type="submit">Add Comment</button>
-    </div>
-</div>
+{{#if isLoggedIn}}
+<p style="text-align: center;">Leave a comment</p>
+<label for="exampleFormControlTextarea1"></label>
+<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="It's a perfect day to go surfing!"></textarea>
+ <button style="display: block; margin: 0 auto" id="comment-button" type="submit">Add Comment</button>
+ {{else}}
+   <a href="/login" style="display: block; margin: 0 auto" id="logIn-button" type="submit">Log-In to add Comment</button>
+ {{/if}}   
 <div>
     {{#each comments}}
     {{> commentcard}}

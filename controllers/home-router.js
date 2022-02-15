@@ -17,15 +17,19 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/login", (req, res) => {
-  res.render("login", { title: "Log-In Page" });
+  res.render("login", { title: "Log-In Page", isLoggedIn:req.session.isLoggedIn });
 });
 
 router.get("/signup", (req, res) => {
   res.render("signup", { title: "Sign-Up Page" });
 });
 
-router.get("/display",  async (req, res) => {
+router.get("/display", async (req, res) => {
   try {
+    if(!req.query.zipcode){
+      res.redirect("/");
+      return;
+    }
     const weather = await fetchWeather(req.query.zipcode) 
     console.log(weather);
     const commentPosts = await Comment.findAll({
@@ -34,9 +38,10 @@ router.get("/display",  async (req, res) => {
       }
     });  
     const comments = commentPosts.map((posts) => posts.get({ plain:true}));
-    res.render("display", {comments, title: "Log-In Page", weather });
+    res.render("display", {comments, title: "Log-In Page", isLoggedIn: req.session.isLoggedIn, weather });
     console.log(comments); 
   } catch (error) {
+    console.log(error);
     res.status(500).json(error);
   }
 });
