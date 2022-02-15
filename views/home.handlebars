@@ -1,25 +1,28 @@
 {{!-- <div class="container-fluid" style="max-width: 1400px">
-        <div class="row"> --}}
-          <div style="text-align: center;">
-           <p>Welcome to the Weather IO app 
-             where you can check the current weather by entering your zipcode 
-             As well as post or view your own up to date weather forecast of a given area and see other users weather input
-             in order to partake in posting comments you will need to sign up with our app through our simple "signup" page
-             </p>
-             </div>
-          <div class="container-fluid">
-        <div class="row">
-            <div class="col-3">
-                <h1>Search for a Zip Code:</h1>
-                <form>
-                <input id="search-input" class="form-input w-100 fs-3" type="text" placeholder="92058!">
-                <button type="submit" class="col-12 bg-info fs-4 my-4 p-2 border-dark" id="submitBtn">Submit</button>
-            </form>
-                <div class="col-12 justify-content-center border-top border-2" id="cityList">
+    <div class="row"> --}}
+        <div style="text-align: center;">
+            <p>Welcome to the Weather IO app
+                where you can check the current weather by entering your zipcode
+                As well as post or view your own up to date weather forecast of a given area and see other users weather
+                input
+                in order to partake in posting comments you will need to sign up with our app through our simple
+                "signup" page
+            </p>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-3">
+                    <h1>Search for a Zip Code:</h1>
+                    <form id="search-form">
+                        <input id="search-input" class="form-input w-100 fs-3" type="text" placeholder="92058!">
+                        <button type="submit" class="col-12 bg-info fs-4 my-4 p-2 border-dark"
+                            id="submitBtn">Submit</button>
+                    </form>
+                    <div class="col-12 justify-content-center border-top border-2" id="cityList">
+                    </div>
                 </div>
-            </div>
-            
+
             </div>
         </div>
     </div>
-      
+    <script src="/js/search.js"></script>
