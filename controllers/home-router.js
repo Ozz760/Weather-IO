@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { Comment, User } = require("../models");
+const fetchWeather = require("../util/weather"); 
 
 
 
@@ -19,29 +20,28 @@ router.get("/login", (req, res) => {
   res.render("login", { title: "Log-In Page" });
 });
 
-router.get("//signup", (req, res) => {
+router.get("/signup", (req, res) => {
   res.render("signup", { title: "Sign-Up Page" });
 });
 
 router.get("/display",  async (req, res) => {
-  
   try {
+    const weather = await fetchWeather(req.query.zipcode) 
+    console.log(weather);
     const commentPosts = await Comment.findAll();  
     const comments = commentPosts.map((posts) => posts.get({ plain:true}));
-    res.render("display", {comments, title: "Log-In Page" });
+    res.render("display", {comments, title: "Log-In Page", weather });
     console.log(comments); 
   } catch (error) {
     res.status(500).json(error);
   }
 });
 
+
+
+
+
 module.exports = router;
-
-
-
-
-
-
 
 
 
